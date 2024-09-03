@@ -92,6 +92,7 @@
     device-orientation-permission-ui="enabled: false">
 
     <a-assets>
+      <!-- Ensure video is loaded correctly -->
       <video id="video" class="landscape-only" src="./vid2.mp4" playsinline muted></video>
     </a-assets>
 
@@ -122,7 +123,7 @@
     const button = document.querySelector('#playPauseButton');
     const buttonText = document.querySelector('#playPauseText');
 
-    // Video is initially paused and muted
+    // Ensure video is initially paused and muted
     video.pause();
     video.muted = true;
 
