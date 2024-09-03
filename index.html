@@ -5,6 +5,31 @@
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   <style>
+    /* Ensure video and play/pause button are visible only in landscape mode */
+    .landscape-only {
+      display: none;
+    }
+
+    @media only screen and (orientation: landscape) {
+      .landscape-only {
+        display: block;
+      }
+
+      .portrait-only {
+        display: none;
+      }
+    }
+
+    @media only screen and (orientation: portrait) {
+      .landscape-only {
+        display: none;
+      }
+
+      .portrait-only {
+        display: block;
+      }
+    }
+
     #playPauseButtonContainer {
       position: absolute;
       top: 20px;
@@ -55,32 +80,6 @@
     .a-enter-vr-button {
       display: none !important;
     }
-
-    /* Hide video and play/pause button in portrait mode */
-    .landscape-only {
-      display: none;
-    }
-
-    /* Show video and play/pause button only in landscape mode */
-    @media only screen and (orientation: landscape) {
-      .landscape-only {
-        display: block;
-      }
-
-      .portrait-only {
-        display: none;
-      }
-    }
-
-    @media only screen and (orientation: portrait) {
-      .landscape-only {
-        display: none;
-      }
-
-      .portrait-only {
-        display: block;
-      }
-    }
   </style>
 </head>
 <body>
@@ -92,7 +91,6 @@
     device-orientation-permission-ui="enabled: false">
 
     <a-assets>
-      <!-- Ensure video is loaded correctly -->
       <video id="video" class="landscape-only" src="./vid2.mp4" playsinline muted></video>
     </a-assets>
 
